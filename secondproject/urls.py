@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 import blog.views
 import portfolio.views
 
@@ -24,5 +26,5 @@ urlpatterns = [
     path('blog/<int:blog_id>', blog.views.detail, name="detail"),
     path('blog/new/', blog.views.new, name="new"),
     path('blog/create/', blog.views.create, name="create"),
-    path('gallery/', portfolio.views.gallery, name="gallery") 
-]
+    path('gallery/', portfolio.views.gallery, name="gallery"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
