@@ -10,18 +10,28 @@
 <body>
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
-  {% for blog in posts %}
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title"> 제목: {{blog.title}} </h5>
-            <h6 class="card-subtitle mb-2 text-muted">날짜: {{blog.pub_date}}</h6>
-            <p class="card-text">본문 미리보기: {{blog.summary}}</p>
-            <p class="card-text">작성자: {{blog.writer}}</p>
-            <a href="{%url 'detail' blog.id%}">more</a>
-            <br>
-        </div>
-    </div>
-{% endfor %}   
+  
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">제목</th>
+          <th scope="col">작성자</th>
+          <th scope="col">등록일</th>
+        </tr>
+      </thead>
+      {% for blog in posts %}
+      <tbody>
+        <tr>
+          <th scope="row">{{blog.id}}</th>
+          <td><a href="{%url 'detail' blog.id%}">{{blog.title}}</a></td>
+          <td>{{blog.writer}}</td>
+          <td>{{blog.pub_date}}</td>
+        </tr>
+      </tbody>
+      {% endfor %}
+    </table>
+   
 </main>
 <div class = 'container' id="center">
   {%if posts.has_previous%}

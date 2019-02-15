@@ -8,7 +8,7 @@ from .form import BlogPost
 def home(request):
     blogs=Blog.objects
     blog_list = Blog.objects.all()
-    paginator = Paginator(blog_list, 3)
+    paginator = Paginator(blog_list, 10)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     return render(request, 'home.html', {'blogs':blogs, 'posts':posts})
