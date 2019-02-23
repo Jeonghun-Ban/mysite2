@@ -39,8 +39,26 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'portfolio.apps.PortfolioConfig',
-    'accounts.apps.AccountsConfig',
+    'login.apps.LoginConfig',
+
+    'django.contrib.sites',
+	'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    'allauth.socialaccount.providers.google',
 ]
+
+AUTHENTICATION_BACKENDS = { 
+    'django.contrib.auth.backends.ModelBackend', # 디폴트 백앤드
+    'allauth.account.auth_backends.AuthenticationBackend', # allauth 백앤드
+}
+
+SITE_ID = 1 
+
+LOGIN_REDIRECT_URL = '/' #로그인시 메인페이지로 리디렉트
+
+ACCOUNT_DEFAULT_HTTP_PROTOCAL = "https"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

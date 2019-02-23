@@ -1,12 +1,12 @@
-{% extends 'base.html' %}
+{% extends 'login_base.html' %}
 
 {% block contents %}
 <div class = "container">
-    <h1>Sign</h1>
+    <h1>Login</h1>
 
-    <form method="POST" action="{% url 'sign' %}">
+    <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
-
+        
         Username:
         <br>
         <input name="username" type="text">
@@ -15,12 +15,9 @@
         <br>
         <input name="password" type="password">
         <br>
-        Confirm Password:
         <br>
-        <input name="password2" type="password">
-        <br>
-        <br>
-        <input class="btn btn-primary" type="submit" value="Sign Up">
+        <input class="btn btn-primary" type="submit" value="Login">
+        <a class="btn btn-primary" href="{% url 'sign' %}">sign</a>
     </form>
 </div>
 
