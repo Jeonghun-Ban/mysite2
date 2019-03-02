@@ -42,12 +42,12 @@
           <ul class="nav navbar-nav navber-right">
             {% if not user.is_authenticated %}
             <li>
-              <a class="nav-link" href="{% url 'login' %}">Login</a>
+              <a class="nav-link" href="{% url 'account_login' %}">Login</a>
             </li>
             {% endif %}
             {% if user.is_authenticated %}
             <li>
-              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+              <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
             {% endif %}
           </ul>
