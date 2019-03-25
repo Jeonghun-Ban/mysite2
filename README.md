@@ -5,6 +5,7 @@
 개발 계획
 - 블로그 CRUD구현
 - allauth 소셜 로그인
+- 계정 삭제 기능
 - portfolio(media, static)
 
 사이트 주소: https://radiant-cliffs-38946.herokuapp.com/
