@@ -1,3 +1,4 @@
+{% load account %}
 <!DOCTYPE html>
 
 <head>
@@ -46,6 +47,9 @@
             </li>
             {% endif %}
             {% if user.is_authenticated %}
+            <li>
+              <a class="nav-link">{% user_display user %}</a>
+            </li>
             <li>
               <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
